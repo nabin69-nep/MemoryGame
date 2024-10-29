@@ -83,7 +83,7 @@ function MemoryGame() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
       <h1 className="text-3xl font-bold mb-6">Memory Game</h1>
-      <div className="flex gap-4 mb-4">
+      <div className="flex gap-4 sm:flex-row flex-col mb-4">
         <label htmlFor="grid" className="text-lg">
           Grid Size(max 10)
         </label>
