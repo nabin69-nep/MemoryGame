@@ -87,7 +87,7 @@ function MemoryGame() {
       <h1 className="text-3xl font-bold mb-6">Patta Lagam</h1>
       <div className="flex gap-4 sm:flex-row flex-col mb-4">
         <label htmlFor="grid" className="text-lg">
-          Grid Size(max 10)
+          Grid Size( Range: <span className="text-red-600">2-10</span> )
         </label>
         <input
           id="grid"
