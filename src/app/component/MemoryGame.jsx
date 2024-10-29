@@ -9,14 +9,16 @@ function MemoryGame() {
   const [disabled, setDisabled] = useState(false);
   const [win, setWin] = useState(false);
   const [move, setMove] = useState(5);
-
+  const [gridInput, setGridInput] = useState(grid);
   const handleGridSizeChange = (e) => {
-    const size = parseInt(e.target.value);
-    if (size >= 2 && size <= 10) {
-      setGrid(size);
+    const size = e.target.value;
+    setGridInput(size); // Update input value immediately
+
+    const parsedSize = parseInt(size);
+    if (parsedSize >= 2 && parsedSize <= 10) {
+      setGrid(parsedSize); // Only update grid state if valid
     }
   };
-
   const initializeGame = () => {
     const totalCards = grid * grid;
     const pairCount = Math.floor(totalCards / 2);
@@ -82,7 +84,7 @@ function MemoryGame() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold mb-6">Memory Game</h1>
+      <h1 className="text-3xl font-bold mb-6">Patta Lagam</h1>
       <div className="flex gap-4 sm:flex-row flex-col mb-4">
         <label htmlFor="grid" className="text-lg">
           Grid Size(max 10)
@@ -92,7 +94,7 @@ function MemoryGame() {
           type="number"
           min={2}
           max={10}
-          value={grid}
+          value={gridInput}
           onChange={handleGridSizeChange}
           className="border-2 border-black rounded-lg text-center"
         />
@@ -143,7 +145,7 @@ function MemoryGame() {
           </p>
         )
       )}
-      
+
       <button
         onClick={initializeGame}
         className="mt-5 border-2 border-gray-400 px-4 py-2 rounded-lg bg-green-400 text-white font-bold"
